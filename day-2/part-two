@@ -1,0 +1,1 @@
+ruby -F, -ane 'prg = $F.map(&:to_i); def fn(v, n, pg) pg[1]=n;pg[2]=v; pg.each_slice(4) { |o,f,s,d| pg[d] = case o; when 1; pg[f] + pg[s]; when 2; pg[f] * pg[s]; when 99; return pg[0]; end} end; (0..99).each{|v| (0..99).each{|n| if (fn(v,n,prg.clone) == 19690720); p 100*n + v; exit;end}}' 2_input.txt

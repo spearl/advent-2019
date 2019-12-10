@@ -1,0 +1,1 @@
+ruby -F, -ane 'pg = $F.map(&:to_i); pg[1]=12;pg[2]=2; pg.each_slice(4) { |o,f,s,d| pg[d] = case o; when 1; pg[f] + pg[s]; when 2; pg[f] * pg[s]; when 99; p pg[0];exit end }' 2_input.txt
